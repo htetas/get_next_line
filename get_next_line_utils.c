@@ -1,4 +1,16 @@
-#include <get_next_line.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsoe <hsoe@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/09 11:18:57 by hsoe              #+#    #+#             */
+/*   Updated: 2024/10/09 13:28:17 by hsoe             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
 
 t_list	*ft_lstnew(char *content)
 {
@@ -24,26 +36,28 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-size_t	ft_findlen(t_list *lst)
+size_t	ft_len_to_newline(t_list *lst)
 {
 	int		i;
 	size_t	len;
 
+	len = 0;
 	while (lst)
 	{
-		i = 0
+		i = 0;
 		while (lst->s[i])
 		{
 			if (lst->s[i] == '\n')
 				return (len + 1);
 			i++;
-			len++
+			len++;
 		}
 		lst = lst->next;
 	}
+	return (len);
 }
 
-int	ft_found_new_line(t_list *lst)
+int	ft_found_newline(t_list *lst)
 {
 	int	i;
 
@@ -59,4 +73,19 @@ int	ft_found_new_line(t_list *lst)
 		lst = lst->next;
 	}
 	return (0);
+}
+
+void	ft_clean(t_list *lst)
+{
+	t_list	*tmp;
+
+	while (lst)
+	{
+		tmp = lst;
+		lst = lst->next;
+		free(tmp->s);
+		tmp->s = NULL;
+		free(tmp);
+		tmp = NULL;
+	}
 }
