@@ -6,7 +6,7 @@
 /*   By: hsoe <hsoe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:18:57 by hsoe              #+#    #+#             */
-/*   Updated: 2024/10/10 15:50:54 by hsoe             ###   ########.fr       */
+/*   Updated: 2024/10/10 15:18:40 by hsoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_list	*ft_lstnew(char *content)
 
 size_t	ft_len_to_newline(t_list *lst)
 {
-	size_t	i;
+	int		i;
 	size_t	len;
 
 	len = 0;

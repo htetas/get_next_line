@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsoe <hsoe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:18:46 by hsoe              #+#    #+#             */
-/*   Updated: 2024/10/10 15:29:04 by hsoe             ###   ########.fr       */
+/*   Updated: 2024/10/10 16:05:43 by hsoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	ft_append(t_list **lst, char *buf)
 {
@@ -109,16 +109,16 @@ char	*ft_get_line(t_list *lst)
 char	*get_next_line(int fd)
 {
 	char			*next_line;
-	static t_list	*lst;
+	static t_list	*lst[FD_SIZE];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ft_createlst(&lst, fd);
-	if (!lst)
+	ft_createlst(&lst[fd], fd);
+	if (!lst[fd])
 		return (NULL);
-	next_line = ft_get_line(lst);
+	next_line = ft_get_line(lst[fd]);
 	if (!next_line)
 		return (NULL);
-	ft_cleanlst(&lst);
+	ft_cleanlst(&lst[fd]);
 	return (next_line);
 }
