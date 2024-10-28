@@ -6,7 +6,7 @@
 /*   By: hsoe <hsoe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:18:46 by hsoe              #+#    #+#             */
-/*   Updated: 2024/10/10 15:29:04 by hsoe             ###   ########.fr       */
+/*   Updated: 2024/10/23 11:39:40 by hsoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ void	ft_append(t_list **lst, char *buf)
 void	ft_createlst(t_list **lst, int fd)
 {
 	char	*buf;
-	int		char_read;
+	ssize_t	char_read;
 
-	char_read = 1;
 	while (!ft_found_newline(*lst))
 	{
 		buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));

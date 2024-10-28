@@ -6,7 +6,7 @@
 /*   By: hsoe <hsoe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 11:18:57 by hsoe              #+#    #+#             */
-/*   Updated: 2024/10/10 15:50:54 by hsoe             ###   ########.fr       */
+/*   Updated: 2024/10/23 11:33:42 by hsoe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strdup(const char *s)
 {
 	char	*d;
-	int		i;
-	int		len;
+	size_t	i;
+	size_t	len;
 
 	len = 0;
 	while (s[len] != '\0')
